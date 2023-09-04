@@ -14,9 +14,12 @@ from .models import Women
 
 
 class WomenSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
     class Meta:
         model = Women
         fields = "__all__"
+
     # title = serializers.CharField(max_length=255)
     # content = serializers.CharField()
     # time_create = serializers.DateTimeField(read_only=True)
